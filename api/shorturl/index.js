@@ -22,7 +22,7 @@ router.post('/api/url/new', (req, res, next) => {
 });
 
 router.get('/api/url/:shortUrl', (req, res, next) => {
-  const { shortUrl } = req.params;
+  const shortUrl = req.params.shortUrl;
 
   collection.findByShortUrl(shortUrl, (error, doc) => {
     error ? res.status(500).json({ error }) : res.status(302).redirect(doc.original_url);
