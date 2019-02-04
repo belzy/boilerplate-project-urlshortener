@@ -2,7 +2,9 @@ const mongo = require('mongodb');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-mongoose.connect(process.env.MONGO_URI);
+const MONGO_URI = 'mongodb://belzy:12TestDb34@ds033740.mlab.com:33740/fcc-url-shortener';
+
+mongoose.connect(MONGO_URI);
 
 const urlSchema = new Schema({
 

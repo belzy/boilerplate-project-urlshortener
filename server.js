@@ -1,5 +1,5 @@
 
-require('dotenv').config();
+// require('dotenv').config();
 const chalk = require('chalk');
 const apiRouter = require('./api/index.js');
 const cors = require('cors');
