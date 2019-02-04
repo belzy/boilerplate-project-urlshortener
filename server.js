@@ -14,8 +14,10 @@ server.use(cors());
 server.use(express.json());
 server.use(apiRouter);
 
-server.get('/', function(req, res){
-  res.sendFile(process.cwd() + '/views/index.html');
+server.use('/', express.static(path.join(__dirname, './client/build/')));
+
+server.get('/', (req, res, next) => {
+  res.sendFile(path.join(__dirname, './client/index.html'));
 });
 
 server.listen(PORT, function () {
