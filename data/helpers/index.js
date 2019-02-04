@@ -1,4 +1,7 @@
+'use strict';
+
 const Url = require('../models/index.js');
+
 
 let urlNum = 1;
 
