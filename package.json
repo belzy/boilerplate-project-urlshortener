@@ -9,6 +9,7 @@
 	},
 	"dependencies": {
 		"body-parser": "^1.15.2",
+		"chalk": "^2.4.2",
 		"cors": "^2.8.1",
 		"create-react-app": "^2.1.3",
 		"dotenv": "^6.2.0",
@@ -30,7 +31,6 @@
 	],
 	"license": "MIT",
 	"devDependencies": {
-		"chalk": "^2.4.2",
 		"nodemon": "^1.18.9"
 	}
 }
