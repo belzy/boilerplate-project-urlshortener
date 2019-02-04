@@ -3,6 +3,21 @@ import styled from 'styled-components';
 import { Button, Intent, Spinner, FormGroup, InputGroup, ControlGroup } from '@blueprintjs/core';
 import '@blueprintjs/core/lib/css/blueprint.css';
 
+
+// <Title>URL Shortener</Title>
+//
+// <Form>
+//   {/*<Spinner intent={Intent.PRIMARY} />*/}
+//
+//
+//   <FormGroup label='Enter a URL:' labelFor='url-input'>
+//     <ControlGroup>
+//       <InputGroup id='url-input' type='text' value={ this.state['url-input'] } onChange={ this.handleChange }/>
+//       <Button fill='true' text='Submit'/>
+//     </ControlGroup>
+//   </FormGroup>
+// </Form>
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -25,18 +40,8 @@ class App extends Component {
     return (
       <AppContainer>
 
-        <Title>URL Shortener</Title>
 
-        <Form>
-          {/*<Spinner intent={Intent.PRIMARY} />*/}
-          <FormGroup label='Enter a URL:' labelFor='url-input'>
-            <ControlGroup>
-              <InputGroup id='url-input' type='text' value={ this.state['url-input'] } onChange={ this.handleChange }/>
-              <Button fill='true' text='Submit'/>
-            </ControlGroup>
-          </FormGroup>
-        </Form>
-
+      hi
 
       </AppContainer>
     );
@@ -57,8 +62,6 @@ const Form = styled.form`
   /* border: 1px solid black; */
   width: 300px;
 `;
-
-
 
 const AppContainer = styled.div`
 

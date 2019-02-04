@@ -1,4 +1,3 @@
-'use strict';
 
 const collection = require('../../data/helpers/index.js');
 const express = require('express');
