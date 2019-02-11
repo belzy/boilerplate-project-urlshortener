@@ -44,7 +44,7 @@ class UrlShortener extends Component {
 
     axios({
       method: 'post',
-      url: 'http://localhost:3000/api/shorturl/new',
+      url: '/api/shorturl/new',
       data: {
         url,
       }
