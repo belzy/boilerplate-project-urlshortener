@@ -2,23 +2,29 @@
 
 const Url = require('../models/index.js');
 
-let urlNum = 1;
-// let projectUrl = process.env.URL || 'http://localhost:3000/api/url/';
-
 module.exports = {
-
 
   createNewUrl: function(url, done) {
 
-    const newUrl = {
-      original_url: url,
-      short_url: urlNum,
-    };
 
-    Url.create(newUrl, (err, doc) => {
-      err ? done(err) : done(null, doc);
+
+    getNewShortUrl((err, num) => {
+      if (err) {
+        done(err);
+      } else {
+
+        const newUrl = {
+          original_url: url,
+          short_url: num,
+        };
+
+        Url.create(newUrl, (err, doc) => {
+          err ? done(err) : done(null, doc);
+        });
+      }
+
     });
-    urlNum += 1;
+
   },
 
   findByShortUrl: function(short_url, done) {
@@ -27,7 +33,29 @@ module.exports = {
     });
   },
 
+}
 
+const getNewShortUrl = (done) => {
+  // Checks if there is an available number less than the max number used.
+  // If not, passes the next greatest number into done().
 
+  Url.find({}).sort({ 'short_url': 'asc' }).exec((err, docs) => {
+    if (err) {
+      done(err);
+    } else {
+      if (docs.length > 0) {
+        for (let i = 0; i < docs.length; i++) {
+          if (i !== docs[i]['short_url']) {
+            done(null, i);
+            break;
+          } else if (i === docs.length - 1) {
+            done (null, i + 1);
+          }
+        }
+      } else {
+        done(null, 0);
+      }
 
+    }
+  });
 }
